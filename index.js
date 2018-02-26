@@ -1,12 +1,12 @@
-const apiURL ='https://lyricsovh.docs.apiary.io/#';
+const apiURL ='https://api.lyrics.ovh/v1/';
 
 function getDataFromApi(artist, title, callback) {
   let query = {
-    q: artist + " " + title,
+    q: artist + '/' + title,
     language: 'en-us',
   }
   let autoSettings = {
-    url: apiURL + query,
+    url: apiURL + query.q,
     data: query,
     dataType: 'json',
     type: 'get',
@@ -27,8 +27,8 @@ function renderLyrics(lyricObj) {
 }
 
 function displaySearchData(data) {
-  const results = data.items.map((item, index) => renderLyrics(item));
-  $('js-search-results').html(results);
+  // const results = data.items.map((item, index) => renderLyrics(item));
+  // $('js-search-results').html(results);
   console.log(data);
 }
 
