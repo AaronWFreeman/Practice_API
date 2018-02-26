@@ -13,7 +13,7 @@ function getDataFromApi(artist, title, callback) {
     success: callback
   }
   $.ajax(query, autoSettings);
-  console.log(query, autoSettings);
+  // console.log(query, autoSettings);
 
 }
 
@@ -29,7 +29,7 @@ function renderLyrics(lyricObj) {
 function displaySearchData(data) {
   // const results = data.items.map((item, index) => renderLyrics(item));
   // $('js-search-results').html(results);
-  console.log(data);
+  console.log('hey', data);
 }
 
 function watchSubmit() {
