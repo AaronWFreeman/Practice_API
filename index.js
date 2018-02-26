@@ -12,7 +12,7 @@ function getDataFromApi(artist, title, callback) {
     type: 'get',
     success: callback
   }
-  $.ajax(query, autoSettings);
+  $.ajax(autoSettings);
   // console.log(query, autoSettings);
 
 }
