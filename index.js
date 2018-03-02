@@ -8,46 +8,21 @@ function getDataFromApi(artist, title) {
       mode: 'cors'
     }).then((response) => {
         if (response.status !== 200) {
-          console.log('Looks like there was a problem. Status Code: ' +
-            response.status);
+          console.log(`Looks like there was a problem. Status Code:  +
+            ${response.status}`);
           return;
         }
         return response.json();
     }).then((data) => {
-        return data;
+        renderLyrics(data);
     }).catch(function(err) {
-      console.log('goFetch() Error :-S --> utils.js', err);
+      console.log('Error :-S', err);
       return err;
     });
-  // let query = {
-  //   q: artist + '/' + title,
-  //   language: 'en-us',
-  // }
-  // let autoSettings = {
-  //   url: apiURL + query.q,
-  //   data: query,
-  //   dataType: 'json',
-  //   type: 'get',
-  //   success: callback
-  // }
-  // $.ajax(autoSettings);
-  // console.log(query, autoSettings);
-
 }
 
-function renderLyrics(lyricObj) {
-  // return
-  //   <div>
-  //     <p>
-  //       // `${lyricObj}`
-  //     </p>
-  //   </div>;
-}
-
-function displaySearchData(data) {
-  // const results = data.items.map((item, index) => renderLyrics(item));
-  // $('js-search-results').html(results);
-  console.log('hey', data);
+function renderLyrics(data) {
+  $('.js-search-results').html(data.lyrics);
 }
 
 function watchSubmit() {
